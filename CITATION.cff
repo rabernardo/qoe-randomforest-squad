@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Si usa este software, por favor cítelo como se indica a continuación."
+title: "qoe-randomforest-squad: Modelo Random Forest para la optimización de la QoE (Academia SQUAD, Bogotá 2026)"
+type: software
+authors:
+  - family-names: "Bernardo Livaque"
+    given-names: "Rodolfo Arturo"
+  - family-names: "Rojas Sánchez"
+    given-names: "Juan Carlos"
+year: 2026
+license: MIT
+repository-code: "https://github.com/rednoseXX/qoe-randomforest-squad"
+keywords:
+  - "Quality of Experience"
+  - "QoE"
+  - "Random Forest"
+  - "Machine Learning"
+  - "clasificación de tráfico"
+  - "Edge Computing"

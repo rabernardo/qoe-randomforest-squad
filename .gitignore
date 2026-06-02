@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Datos de tráfico (NO publicar capturas reales)
+*.csv
+*.pcap
+*.pcapng
+
+# Entornos / secretos
+.env
+*.env
+*.key
+*.pem
+
+# Sistema
+.DS_Store
+Thumbs.db

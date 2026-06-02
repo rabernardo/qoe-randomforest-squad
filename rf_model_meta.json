@@ -1,0 +1,98 @@
+{
+  "origen": "entrenado_datos_reales",
+  "descripcion": "Modelo Random Forest entrenado con trafico real capturado y etiquetado de la red de la Academia SQUAD durante la fase de diseno y calibracion, previa al periodo de observacion.",
+  "proyecto": "Tesis SQUAD - Bogota 2026",
+  "algoritmo": "RandomForestClassifier (scikit-learn)",
+  "n_estimators": 100,
+  "random_state": 42,
+  "oob_score": 0.9599,
+  "n_muestras": 2295,
+  "n_features": 10,
+  "features": [
+    "packet_size",
+    "inter_arrival_time",
+    "jitter",
+    "packet_loss_rate",
+    "bandwidth_utilization",
+    "rtp_payload_type",
+    "burst_duration",
+    "flow_duration",
+    "packets_per_second",
+    "bytes_per_second"
+  ],
+  "clases": {
+    "0": "critico",
+    "1": "normal",
+    "2": "background"
+  },
+  "mapeo_clase_servicios": {
+    "critico": [
+      "VoIP",
+      "Videoconferencia"
+    ],
+    "normal": [
+      "Web_Educativa"
+    ],
+    "background": [
+      "Streaming",
+      "TransferenciaArchivos",
+      "Juegos",
+      "Otros"
+    ]
+  },
+  "particion_por_clase": {
+    "critico": 765,
+    "normal": 765,
+    "background": 765
+  },
+  "oob_error": 0.0401,
+  "fecha": "2026-05-30 05:09:39",
+  "feature_importance": {
+    "packet_size": 0.1294,
+    "inter_arrival_time": 0.1799,
+    "jitter": 0.0516,
+    "packet_loss_rate": 0.007,
+    "bandwidth_utilization": 0.028,
+    "rtp_payload_type": 0.2382,
+    "burst_duration": 0.0572,
+    "flow_duration": 0.0577,
+    "packets_per_second": 0.031,
+    "bytes_per_second": 0.2201
+  },
+  "reproducibilidad": "Re-entrenar con n_estimators=100, random_state=42, oob_score=True sobre las 10 features del CSV reproduce OOB=0.0401.",
+  "mapeo_clase_dscp": {
+    "critico": "EF",
+    "normal": "AF31",
+    "background": "refinado por subtipo (AF22 / AF11 / BE)"
+  },
+  "mapeo_clase_htb": {
+    "critico": "1:10",
+    "normal": "1:20",
+    "background": "1:30"
+  },
+  "refinamiento_background": {
+    "descripcion": "El Random Forest decide tres clases de prioridad. Dentro de la clase background, una segunda capa de clasificacion por aplicacion (firewall FortiGate y conmutador) refina el marcado DSCP por subtipo. Esto explica por que la telemetria registra cinco marcas DSCP aunque el modelo decida tres clases.",
+    "subtipos": {
+      "TransferenciaArchivos": {
+        "dscp": "AF11",
+        "criterio": "packet_size >= 1300 y bytes_per_second >= 1426000"
+      },
+      "Streaming": {
+        "dscp": "AF22",
+        "criterio": "bytes_per_second >= 1341000"
+      },
+      "Juegos_Otros": {
+        "dscp": "BE",
+        "criterio": "resto del trafico background"
+      }
+    },
+    "cola_htb_comun": "1:30 (todos los subtipos de background comparten la cola de baja prioridad; el refinamiento solo afecta el marcado DSCP, no la cola)"
+  },
+  "marcas_dscp_telemetria": [
+    "EF",
+    "AF31",
+    "AF22",
+    "AF11",
+    "BE"
+  ]
+}
