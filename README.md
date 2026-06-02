@@ -1,5 +1,7 @@
 # qoe-randomforest-squad
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20502846.svg)](https://doi.org/10.5281/zenodo.20502846)
+
 Modelo de **Machine Learning basado en Random Forest** para la optimización de la
 **Calidad de Experiencia (QoE)** en la red de una academia de música y
 neurodesarrollo de alta densidad (Academia SQUAD, Bogotá, 2026).
@@ -75,6 +77,11 @@ MIT. Ver [LICENSE](LICENSE).
 
 ## Cómo citar
 
-Ver [CITATION.cff](CITATION.cff). Este repositorio es material complementario de la
-tesis sobre optimización de la QoE mediante Random Forest (Academia SQUAD,
+DOI (concepto, todas las versiones): **10.5281/zenodo.20502846** ·
+https://doi.org/10.5281/zenodo.20502846
+
+> Bernardo Livaque, R. A., y Rojas Sánchez, J. C. (2026). *qoe-randomforest-squad: modelo Random Forest para la optimización de la Calidad de Experiencia (QoE) en una academia de alta densidad* (Versión 1.0.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.20502846
+
+Ver también [CITATION.cff](CITATION.cff). Este repositorio es material complementario
+de la tesis sobre optimización de la QoE mediante Random Forest (Academia SQUAD,
 Bogotá, 2026).

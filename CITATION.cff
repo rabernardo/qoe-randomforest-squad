@@ -8,7 +8,13 @@ authors:
   - family-names: "Rojas Sánchez"
     given-names: "Juan Carlos"
 year: 2026
+version: "1.0.0"
 license: MIT
+doi: 10.5281/zenodo.20502846
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.20502846
+    description: "DOI de concepto (todas las versiones)"
 repository-code: "https://github.com/rabernardo/qoe-randomforest-squad"
 keywords:
   - "Quality of Experience"
